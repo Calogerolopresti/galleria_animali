@@ -11,7 +11,7 @@ def scarica_url_da_api(url_api, quante):
     e ritorna la lista degli URL delle immagini.
     Ritorna una lista vuota in caso di errore.
     """
-    parametri = {"limit": quante}
+    parametri = {"limit": 10}
 
     try:
         risposta = requests.get(url_api, params=parametri, timeout=10)
@@ -23,7 +23,10 @@ def scarica_url_da_api(url_api, quante):
             # TODO 2: ciclo for su immagini
             # per ogni immagine: url_list.append(immagine["url"])
             for immagine in immagini:
+                quante -= 1
                 url_list.append(immagine["url"])
+                if quante == 0:
+                  break
 
             return url_list
 
