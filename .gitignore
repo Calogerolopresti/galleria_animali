@@ -1,3 +1,6 @@
+# Cartella delle immagini degli animali specifica di questo progetto
+immagini_animali/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
