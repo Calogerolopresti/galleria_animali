@@ -4,6 +4,7 @@ from animali_download import scarica_tutte
 from animali_cartella import crea_cartella, elenca_immagini
 from animali_galleria import ordina_alfabeticamente, stampa_galleria
 
+
 CARTELLA  = "immagini_animali"
 QUANTE    = 5        # quante immagini scaricare per ogni animale
 
