@@ -11,22 +11,20 @@ def scarica_url_da_api(url_api, quante):
     e ritorna la lista degli URL delle immagini.
     Ritorna una lista vuota in caso di errore.
     """
-    parametri = {"limit": 10}
+    parametri = {"limit": quante}
 
     try:
+        print(f"Chiamo {url_api} con parametri {parametri}")
         risposta = requests.get(url_api, params=parametri, timeout=10)
 
         if risposta.status_code == 200:
             immagini = risposta.json()
-
+            print("Numero di immagini ricevute:", len(immagini))
             url_list = []
             # TODO 2: ciclo for su immagini
             # per ogni immagine: url_list.append(immagine["url"])
             for immagine in immagini:
-                quante -= 1
-                url_list.append(immagine["url"])
-                if quante == 0:
-                  break
+              url_list.append(immagine["url"])
 
             return url_list
 
@@ -59,8 +57,8 @@ def scarica_url_gatti(quante):
 
 
 if __name__ == "__main__":
-    cani  = scarica_url_cani(3)
-    gatti = scarica_url_gatti(3)
+    cani  = scarica_url_cani(1)
+    gatti = scarica_url_gatti(11)
     print("URL cani:")
     for url in cani:
         print(" ", url)
